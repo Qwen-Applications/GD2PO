@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+*.so
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs & outputs
+*.log
+outputs/
+open_source_runs/
+tensorboard_log/
+wandb/
+
+# Downloaded datasets
+tool-calling/dataset/rlla_4k/*.parquet
+tool-calling/dataset/rlla_4K/*.parquet
+
+# Checkpoints
+*.ckpt
+*.pt
+*.bin
+*.safetensors

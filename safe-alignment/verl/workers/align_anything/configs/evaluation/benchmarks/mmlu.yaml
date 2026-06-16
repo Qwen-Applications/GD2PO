@@ -1,0 +1,53 @@
+# Copyright 2024 PKU-Alignment Team. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+infer_cfgs:
+  # The deepspeed configuration
+  ds_cfgs: ds_z3_config.json
+  vllm_cfgs: vllm_basic.json
+
+default:
+  # Evaluation configurations
+  eval_cfgs:
+    # Output directory name
+    output_dir: null
+    # Unique identifier for cache folder
+    uuid: null
+    # Num shot
+    n_shot: 0
+    # Use Chain of Thought
+    cot: false
+  # Configuration for data
+  data_cfgs:
+    # Task name
+    task: ['abstract_algebra', 'anatomy', 'astronomy', 'business_ethics', 'clinical_knowledge', 'college_biology', 'college_chemistry', 'college_computer_science', 'college_mathematics', 'college_medicine', 'college_physics', 'computer_security', 'conceptual_physics', 'econometrics', 'electrical_engineering', 'elementary_mathematics', 'formal_logic', 'global_facts', 'high_school_biology', 'high_school_chemistry', 'high_school_computer_science', 'high_school_european_history', 'high_school_geography', 'high_school_government_and_politics', 'high_school_macroeconomics', 'high_school_mathematics', 'high_school_microeconomics', 'high_school_physics', 'high_school_psychology', 'high_school_statistics', 'high_school_us_history', 'high_school_world_history', 'human_aging', 'human_sexuality', 'international_law', 'jurisprudence', 'logical_fallacies', 'machine_learning', 'management', 'marketing', 'medical_genetics', 'miscellaneous', 'moral_disputes', 'moral_scenarios', 'nutrition', 'philosophy', 'prehistory', 'professional_accounting', 'professional_law', 'professional_medicine', 'professional_psychology', 'public_relations', 'security_studies', 'sociology', 'us_foreign_policy', 'virology', 'world_religions']
+    # Task directory
+    task_dir: cais/mmlu
+    # Evaluation split
+    split: test
+    # Candidate labels
+    candidate_labels: ["A", "B", "C", "D"]
+
+  # The model configurations
+  model_cfgs:
+    model_id: null
+    # Pretrained model name or path
+    model_name_or_path: null
+    # Chat template
+    chat_template: null
+    # Whether to trust remote code
+    trust_remote_code: True
+    # The max token length
+    model_max_length: 2048

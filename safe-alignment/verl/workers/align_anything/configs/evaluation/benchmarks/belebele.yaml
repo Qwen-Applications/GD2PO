@@ -1,0 +1,53 @@
+# Copyright 2024 PKU-Alignment Team. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+infer_cfgs:
+  # The deepspeed configuration
+  ds_cfgs: ds_z3_config.json
+  vllm_cfgs: vllm_basic.json
+
+default:
+  # Evaluation configurations
+  eval_cfgs:
+    # Output directory name
+    output_dir: null
+    # Unique identifier for cache folder
+    uuid: null
+    # Num shot
+    n_shot: 0
+    # Use Chain of Thought
+    cot: false
+  # Configuration for data
+  data_cfgs:
+    # Task name
+    task: ['acm_Arab', 'arz_Arab', 'ceb_Latn', 'fin_Latn', 'hin_Deva', 'ita_Latn', 'khm_Khmr', 'lvs_Latn', 'npi_Deva', 'pol_Latn', 'slv_Latn', 'swe_Latn', 'tso_Latn', 'xho_Latn', 'afr_Latn', 'asm_Beng', 'ces_Latn', 'fra_Latn', 'hin_Latn', 'jav_Latn', 'kin_Latn', 'mal_Mlym', 'npi_Latn', 'por_Latn', 'sna_Latn', 'swh_Latn', 'tur_Latn', 'yor_Latn', 'als_Latn', 'azj_Latn', 'ckb_Arab', 'fuv_Latn', 'hrv_Latn', 'jpn_Jpan', 'kir_Cyrl', 'mar_Deva', 'nso_Latn', 'snd_Arab', 'tam_Taml', 'ukr_Cyrl', 'zho_Hans', 'amh_Ethi', 'bam_Latn', 'dan_Latn', 'gaz_Latn', 'hun_Latn', 'kac_Latn', 'kor_Hang', 'mkd_Cyrl', 'nya_Latn', 'ron_Latn', 'som_Latn', 'tel_Telu', 'urd_Arab', 'zho_Hant', 'apc_Arab', 'ben_Beng', 'deu_Latn', 'grn_Latn', 'hye_Armn', 'kan_Knda', 'lao_Laoo', 'mlt_Latn', 'ory_Orya', 'rus_Cyrl', 'sot_Latn', 'tgk_Cyrl', 'urd_Latn', 'zsm_Latn', 'arb_Arab', 'ben_Latn', 'ell_Grek', 'guj_Gujr', 'ibo_Latn', 'kat_Geor', 'lin_Latn', 'mri_Latn', 'pan_Guru', 'shn_Mymr', 'spa_Latn', 'tgl_Latn', 'uzn_Latn', 'zul_Latn', 'arb_Latn', 'bod_Tibt', 'eng_Latn', 'hat_Latn', 'ilo_Latn', 'kaz_Cyrl', 'lit_Latn', 'mya_Mymr', 'pbt_Arab', 'sin_Latn', 'srp_Cyrl', 'tha_Thai', 'vie_Latn', 'ars_Arab', 'bul_Cyrl', 'est_Latn', 'hau_Latn', 'ind_Latn', 'kea_Latn', 'lug_Latn', 'nld_Latn', 'pes_Arab', 'sin_Sinh', 'ssw_Latn', 'tir_Ethi', 'war_Latn', 'ary_Arab', 'cat_Latn', 'eus_Latn', 'heb_Hebr', 'isl_Latn', 'khk_Cyrl', 'luo_Latn', 'nob_Latn', 'plt_Latn', 'slk_Latn', 'sun_Latn', 'tsn_Latn', 'wol_Latn']
+    # Task directory
+    task_dir: facebook/belebele
+    # Evaluation split
+    split: test
+    # Candidate labels
+    candidate_labels: ["A", "B", "C", "D"]
+
+  # The model configurations
+  model_cfgs:
+    model_id: null
+    # Pretrained model name or path
+    model_name_or_path: null
+    # Chat template
+    chat_template: null
+    # Whether to trust remote code
+    trust_remote_code: True
+    # The max token length
+    model_max_length: 2048
